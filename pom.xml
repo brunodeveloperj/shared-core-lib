@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>4.0.6</version>
+    <relativePath/>
+  </parent>
+
+  <groupId>com.mds</groupId>
+  <artifactId>shared-core-lib</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>shared-core-lib</name>
+  <description>A foundational Spring Boot library providing reusable utility classes, structural patterns, and shared methodologies for consistent application development.</description>
+
+  <properties>
+    <!-- Java compile version -->
+    <java.version>21</java.version>
+
+    <!-->Plugins<-->
+    <fmt-maven-plugin.version>2.13</fmt-maven-plugin.version>
+  </properties>
+
+  <dependencies>
+    <!-- ======================== -->
+    <!-- Spring Boot Base         -->
+    <!-- ======================== -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- ======================== -->
+    <!-- External Libraries       -->
+    <!-- ======================== -->
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-commons</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+    </dependency>
+
+    <!-- ======================== -->
+    <!-- Optional / Provided      -->
+    <!-- ======================== -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <optional>true</optional>
+    </dependency>
+
+    <!-- ======================== -->
+    <!-- Test                     -->
+    <!-- ======================== -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>com.coveo</groupId>
+        <artifactId>fmt-maven-plugin</artifactId>
+        <version>${fmt-maven-plugin.version}</version>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>format</goal>
+            </goals>
+            <phase>process-sources</phase>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
